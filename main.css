@@ -86,7 +86,9 @@ display: block;
 border:white solid 2px;
 border-radius: 40px;
 background-image: url(resources/banner.gif);
-
+margin-left: auto;
+margin-right: auto;
+width: 94%;
 }
 
 #navheader{
@@ -96,7 +98,7 @@ text-align: center;
 
 #wrapper{
 text-align: center; 
-margin-top: 80px;
+margin-top: 3%;
 /* border: solid black 2px; */
 }
 
@@ -107,8 +109,8 @@ display: inline-block;
 }
 
 #study{
-width:800px;
-height: 300px;
+width:80%;
+height: 80%;
 border-radius: 20px;
 
 }
@@ -117,42 +119,6 @@ border-radius: 20px;
 text-align: center;
 }
 
-#left_side{
-text-align: center;
-display: block;
-border:solid 3px red;
-padding:10px;
-float: left;
-margin-top: 80px;
-margin-left: 20px;
-
-}
-
-#right_side{
-text-align: center;
-display: block;
-border:solid 3px red;
-padding:10px;
-float:right;
-margin-top: 80px;
-margin-right: 20px;
-}
-
-#channel_photo{
-width:300px;
-height:260px;
-border-radius: 50%;
-border:solid 4px white;
-float: left;
-margin-left: 50px;
-margin-top: 0px;
-}
-
-
-#main_header{
-margin-top: 40px;
-margin-bottom: 0px;
-}
 
 h3:hover{
 font-size: large;
@@ -162,4 +128,45 @@ text-decoration: underline;
 
 .hov:hover{
 color: red;
+}
+
+
+
+/*for changing the dimentions*/
+
+@media (max-width: 800px) {
+    #logo {
+        height: 30px;
+        width: 30px;
+        margin-left: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-right: 20px;
+    }
+
+    ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+@media (max-width: 480px) {
+    #logo {
+        height: 25px;
+        width: 25px;
+        margin-left: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-right: 10px;
+    }
+
+    ul {
+        margin-left: 0;
+    }
+
 }
