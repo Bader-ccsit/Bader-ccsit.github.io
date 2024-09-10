@@ -13,15 +13,13 @@ body{
     
 }
 
-h1{
+#headerlabel{
 text-align: center;
 margin-top: 5px;
 margin-bottom: 0px;
 display: inline-block;
 margin-right: 70px;
-font-size: 40px;
-
-
+font-size: 30px;
 }
 
 
@@ -102,17 +100,33 @@ margin-top: 3%;
 /* border: solid black 2px; */
 }
 
-#center{
+
+#wrapper-center{
 text-align: center;
+margin-left: auto;
+margin-right: auto;
+
+}
+
+#wrapper-left{
 display: inline-block;
-/* border:solid red 2px; */
+margin-right: 1%;
+}
+
+#wrapper-right{
+    display: inline-block;
+    margin-left: 1%;
+}
+
+.side-text{
+    font-size: x-small;
 }
 
 #study{
-width:80%;
-height: 80%;
+width:50%;
+height: 50%;
 border-radius: 20px;
-
+display: inline-block;
 }
 
 .des{
@@ -151,7 +165,14 @@ color: red;
         align-items: center;
     }
 
+    
 }
+
+/* @media (min-width: 800px) {
+    p {
+        font-size: large;
+    }
+} */
 
 @media (max-width: 480px) {
     #logo {
