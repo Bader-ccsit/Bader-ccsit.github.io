@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bader Alkhamees | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0d1117;
+      --secondary: #1f2937;
+      --accent: #007acc;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --dark-bg: #121212;
+      --card-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--bg);
+      color: var(--primary);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark {
+      background: var(--dark-bg);
+      color: var(--white);
+    }
+    header {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      position: relative;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      animation: fadeInDown 1.5s ease-in-out;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #d1d5db;
+    }
+    .btn-container {
+      margin-top: 1rem;
+    }
+    .btn-download, .btn-toggle {
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .btn-download:hover, .btn-toggle:hover {
+      background: #005b99;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(248, 250, 252, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    body.dark nav {
+      background: rgba(18, 18, 18, 0.95);
+    }
+    nav a {
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      color: var(--primary);
+      border: 1px solid #e5e7eb;
+      background: var(--white);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    body.dark nav a {
+      background: var(--dark-bg);
+      color: var(--white);
+      border-color: var(--gray);
+    }
+    nav a:hover, nav a.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 3rem 1rem;
+      display: grid;
+      gap: 3rem;
+    }
+    .card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+      scroll-margin-top: 120px;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    body.dark .card {
+      background: #1e1e1e;
+      color: var(--white);
+    }
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+      border-left: 4px solid transparent;
+      background: linear-gradient(to right, var(--accent) 4px, transparent 4px);
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat h3 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .stat p {
+      color: var(--gray);
+      font-weight: 500;
+    }
+    footer {
+      text-align: center;
+      background: var(--primary);
+      color: white;
+      padding: 2rem;
+      font-size: 0.875rem;
+    }
+    .footer-icons a {
+      margin: 0 10px;
+      color: white;
+      font-size: 1.5rem;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      .btn-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      nav {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bader Alkhamees</h1>
+    <p>AI & Cybersecurity Enthusiast | Computer Science Student</p>
+    <div class="btn-container">
+      <button class="btn-download" onclick="window.open('Bader_Alkhamees_CV.pdf')">Download CV</button>
+      <button class="btn-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#contact">Contact</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+  </nav>
+
+  <main>
+    <section class="card">
+      <div class="stats">
+        <div class="stat">
+          <h3>270+</h3>
+          <p>Hours of Training</p>
+        </div>
+        <div class="stat">
+          <h3>10+</h3>
+          <p>Projects Built</p>
+        </div>
+        <div class="stat">
+          <h3>5</h3>
+          <p>Certifications</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="contact">
+      <h2><i class="fas fa-envelope"></i> Contact</h2>
+      <p><strong>Email:</strong> <a href="mailto:bader.ccsit@gmail.com">bader.ccsit@gmail.com</a></p>
+      <p><strong>Phone:</strong> +966 54 609 8886</p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/Bader-ccsit" target="_blank">Bader-ccsit</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/bader-alkhamees/" target="_blank">Bader Alkhamees</a></p>
+    </section>
+
+    <section class="card" id="education">
+      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+      <p><strong>University:</strong> King Faisal University</p>
+      <p><strong>Major:</strong> Computer Science</p>
+      <p><strong>GPA:</strong> 4.0 / 5</p>
+      <p><strong>Graduation:</strong> Expected 2025</p>
+    </section>
+
+    <section class="card">
+      <h2><i class="fas fa-code"></i> Skills</h2>
+      <ul>
+        <li>Python, Java, C++</li>
+        <li>TensorFlow, PyTorch, Scikit-learn</li>
+        <li>Network Security, Ethical Hacking</li>
+        <li>HTML, CSS, JavaScript, Flask</li>
+        <li>MySQL, PostgreSQL</li>
+        <li>Git, Linux, Virtual Machines</li>
+      </ul>
+    </section>
+
+    <section class="card" id="projects">
+      <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+      <ul>
+        <li><strong>File Transfer Server:</strong> Flask + Tkinter app for LAN file sharing with QR code</li>
+        <li><strong>Food Classifier:</strong> Deep learning model + USDA API for calorie estimation</li>
+        <li><strong>Movie Recommender:</strong> NLP-based system with scraping</li>
+        <li><strong>Hotel Booking System:</strong> Full-stack Flask application</li>
+      </ul>
+    </section>
+
+    <section class="card" id="certifications">
+      <h2><i class="fas fa-certificate"></i> Certifications</h2>
+      <ul>
+        <li>IT Essentials - Cisco</li>
+        <li>CCNAv7: Introduction to Networks</li>
+        <li>CyberOps Associate - Cisco</li>
+        <li>Time Management - Coursera</li>
+      </ul>
+      <p>Certificates: <a href="https://drive.google.com/drive/folders/1VVZjy0h9y0CV_Wj6HxcLS8q2ZJlyCyG_">View on Google Drive</a></p>
+    </section>
+
+    <section class="card">
+      <h2><i class="fas fa-language"></i> Languages</h2>
+      <ul>
+        <li>Arabic (Native)</li>
+        <li>English (Very Fluent)</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2><i class="fas fa-users"></i> Activities</h2>
+      <ul>
+        <li>Member of AI & Cybersecurity Club</li>
+        <li>Co-founder of Peer Tutoring Club</li>
+        <li>Participant in Coding Hackathons</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Bader Alkhamees. All rights reserved.
+    <div class="footer-icons">
+      <a href="mailto:bader.ccsit@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/Bader-ccsit" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/bader-alkhamees/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+
+    // Scroll animation
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => observer.observe(card));
+
+    // Active nav link highlight (simple version)
+    const navLinks = document.querySelectorAll('nav a');
+    window.addEventListener('scroll', () => {
+      let fromTop = window.scrollY;
+      navLinks.forEach(link => {
+        let section = document.querySelector(link.getAttribute('href'));
+        if (section && section.offsetTop <= fromTop + 150 && section.offsetTop + section.offsetHeight > fromTop + 150) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
